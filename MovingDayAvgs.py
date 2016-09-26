@@ -2,8 +2,10 @@
 """
 Spyder Editor
 
-This is a temporary script file.
+This is a script that searches the market and checks which
+stock are currently priced above their 200 day moving avg.
 """
+from yahoo_finance import Share
 
-print ("hello")
-print ("world")
+yahoo = Share('YHOO')
+print (yahoo.get_200day_moving_avg())
