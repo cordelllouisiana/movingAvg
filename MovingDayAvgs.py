@@ -6,6 +6,7 @@ This is a script that searches the market and checks which
 stock are currently priced above their 200 day moving avg.
 """
 from yahoo_finance import Share
+import math
 
 def determineAgainst50(curr,fifty):
     if(curr > fifty):
@@ -14,6 +15,7 @@ def determineAgainst50(curr,fifty):
         decision = "sell"
         
     return decision
+    
 def determineAgainst200(curr,twoHundred):
     if(curr > twoHundred):
         decision = "buy"
@@ -21,8 +23,15 @@ def determineAgainst200(curr,twoHundred):
         decision = "sell"
         
     return decision
-    
-    
+
+def checkHowMany(curBankAmount,currPrice):
+    #Use Constant for trading
+    tradingFee = 10 #$10 US Dollars
+    curBankAmount = float(curBankAmount)
+    currPrice = float(currPrice)
+    howMany = ((curBankAmount - tradingFee)/(currPrice))
+    howMany = int(howMany)
+    return howMany
     
 def main():
     currentAmountToTrade = 1000 #$1000 US Dollars
@@ -34,6 +43,7 @@ def main():
     print("The current share price is: "+ yahoo.get_price())
     print ("The current 50 Day Moving Avg is: " +yahoo.get_50day_moving_avg()+" "+ determineAgainst50(currPrice,fiftyDayMovingPrice))
     print ("The current 200 Day Moving Avg is: " + yahoo.get_200day_moving_avg() +" "+ determineAgainst200(currPrice,twoHundredMovingPrice))
+    print ("You can purchase "+ str(checkHowMany(currentAmountToTrade,currPrice)) + " shares of "+yahoo.symbol)
 
 if __name__ == "__main__":
     main()
