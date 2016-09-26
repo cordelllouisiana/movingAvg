@@ -33,6 +33,9 @@ def checkHowMany(curBankAmount,currPrice):
     howMany = int(howMany)
     return howMany
     
+def checkWhenSell():  #need to write a function to see when should I sell 
+    return null
+    
 def main():
     currentAmountToTrade = 1000 #$1000 US Dollars
     yahoo = Share('YHOO')
@@ -44,6 +47,7 @@ def main():
     print ("The current 50 Day Moving Avg is: " +yahoo.get_50day_moving_avg()+" "+ determineAgainst50(currPrice,fiftyDayMovingPrice))
     print ("The current 200 Day Moving Avg is: " + yahoo.get_200day_moving_avg() +" "+ determineAgainst200(currPrice,twoHundredMovingPrice))
     print ("You can purchase "+ str(checkHowMany(currentAmountToTrade,currPrice)) + " shares of "+yahoo.symbol)
+    print (42.8042*23)
 
 if __name__ == "__main__":
     main()
