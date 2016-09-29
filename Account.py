@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sep 28 19:51:09 2016
+Created on Wed Sep 28 20:16:19 2016
 
 @author: Cordell
 """
 
-class Checks:
+class Account:
+    def __init__(self,initAmount,stockSymb):
+        self.startAmount = initAmount
+        self.stock = stockSymb
+        
     def checkHowMany(self,curBankAmount,currPrice):
-    #Use Constant for trading
+        #Use Constant for trading
         tradingFee = 10 #$10 US Dollars
         curBankAmount = float(curBankAmount)
         currPrice = float(currPrice)

@@ -8,12 +8,12 @@ stock are currently priced above their 200 day moving avg.
 from yahoo_finance import Share
 import math
 from Decisions import *
-from Checks import *
 from ScreenOutput import *
+from Account import * 
     
 def main():
+    account = Account()
     decisions = Decisions() #Creates empty instance of Decisions class
-    checks = Checks() #Creates empty instance of Checks Class
     display = ScreenOutput()
     currentAmountToTrade = 1000 #$1000 US Dollars   will become a system arg
     yahoo = Share('YHOO') #Creates yahoo instance of Share type object
