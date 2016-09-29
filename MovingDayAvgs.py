@@ -7,22 +7,8 @@ stock are currently priced above their 200 day moving avg.
 """
 from yahoo_finance import Share
 import math
+from Decisions import *
 
-def determineAgainst50(curr,fifty):
-    if(curr > fifty):
-        decision = "buy"
-    elif(fifty >= curr):
-        decision = "sell"
-        
-    return decision
-    
-def determineAgainst200(curr,twoHundred):
-    if(curr > twoHundred):
-        decision = "buy"
-    elif(twoHundred >= curr):
-        decision = "sell"
-        
-    return decision
 
 def checkHowMany(curBankAmount,currPrice):
     #Use Constant for trading
