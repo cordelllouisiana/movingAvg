@@ -18,3 +18,8 @@ class Decisions:
         elif(twoHundred >= curr):
             decision = "sell"
         return decision
+        
+    def getFiftyDayMoving(self,stock):
+        fiftyDayMovingPrice = stock.get_50day_moving_avg()
+        twoHundredMovingPrice = stock.get_200day_moving_avg()
+        print(twoHundredMovingPrice)
