@@ -7,7 +7,7 @@ Created on Wed Sep 28 20:16:19 2016
 import math
 from Decisions import *
 from ScreenOutput import *
-from yahoo_finance import Share
+from stockClient import *
 
 class Account:
     decisions = Decisions() #Creates empty instance of Decisions class
@@ -15,24 +15,23 @@ class Account:
     portfolio = []
     holdings = {}
    # accountBalance = 0.0;
-    currentAmountToTrade = 0.0
+    currentAmountToTrade = 0.0  #class static variable 
 
     
     def __init__(self,stockSymb,initAmount):
         self.startAmount = initAmount
-        self.stock = Share(stockSymb)
+        self.stock = stockClient(stockSymb)
         self.currentAmountToTrade = initAmount
+        self.howMany = checkHowMany(self.currentAmountToTrade,)
         
-    def setCurrentAmount(self,currentAmountToTrade):
-        self.currentAmountToTrade= currentAmountToTrade
-        return self.currentAmountToTrade
+    def setCurrentAmount(self,currentAmToTrade):
+        self.currentAmountToTrade = currentAmToTrade
     
     #def getBalance(self):
      #   return 
     
     def createPortfolio(self,stock):        
         currPrice = stock.get_price() 
-
     
         return "Go Pee"
         
